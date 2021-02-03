@@ -1,0 +1,2 @@
+class InstanceEntity < ApplicationRecord
+end

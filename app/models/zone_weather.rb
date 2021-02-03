@@ -1,0 +1,2 @@
+class ZoneWeather < ApplicationRecord
+end

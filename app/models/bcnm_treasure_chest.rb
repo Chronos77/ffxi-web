@@ -1,0 +1,2 @@
+class BcnmTreasureChest < ApplicationRecord
+end

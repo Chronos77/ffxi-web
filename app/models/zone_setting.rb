@@ -1,0 +1,2 @@
+class ZoneSetting < ApplicationRecord
+end

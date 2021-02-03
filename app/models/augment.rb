@@ -1,0 +1,2 @@
+class Augment < ApplicationRecord
+end

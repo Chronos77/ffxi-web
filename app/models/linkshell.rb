@@ -1,0 +1,2 @@
+class Linkshell < ApplicationRecord
+end

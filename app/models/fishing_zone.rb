@@ -1,0 +1,2 @@
+class FishingZone < ApplicationRecord
+end

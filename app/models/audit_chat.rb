@@ -1,0 +1,2 @@
+class AuditChat < ApplicationRecord
+end

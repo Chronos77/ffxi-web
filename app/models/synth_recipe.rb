@@ -1,0 +1,2 @@
+class SynthRecipe < ApplicationRecord
+end

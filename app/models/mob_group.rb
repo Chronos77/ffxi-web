@@ -1,0 +1,2 @@
+class MobGroup < ApplicationRecord
+end

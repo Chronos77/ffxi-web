@@ -1,0 +1,2 @@
+class AccountsBanned < ApplicationRecord
+end

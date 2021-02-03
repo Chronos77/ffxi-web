@@ -1,0 +1,2 @@
+class WaterPoint < ApplicationRecord
+end

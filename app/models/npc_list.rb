@@ -1,0 +1,2 @@
+class NpcList < ApplicationRecord
+end

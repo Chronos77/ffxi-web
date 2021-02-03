@@ -1,0 +1,2 @@
+class BlueTrait < ApplicationRecord
+end

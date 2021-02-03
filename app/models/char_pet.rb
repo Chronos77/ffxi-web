@@ -1,0 +1,2 @@
+class CharPet < ApplicationRecord
+end

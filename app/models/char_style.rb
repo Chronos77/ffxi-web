@@ -1,0 +1,2 @@
+class CharStyle < ApplicationRecord
+end

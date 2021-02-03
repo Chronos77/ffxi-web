@@ -1,0 +1,2 @@
+class BcnmBattlefield < ApplicationRecord
+end

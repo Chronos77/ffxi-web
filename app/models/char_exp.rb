@@ -1,0 +1,2 @@
+class CharExp < ApplicationRecord
+end

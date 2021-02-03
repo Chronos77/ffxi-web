@@ -1,0 +1,2 @@
+class CheatIncident < ApplicationRecord
+end

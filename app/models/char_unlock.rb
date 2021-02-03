@@ -1,0 +1,2 @@
+class CharUnlock < ApplicationRecord
+end

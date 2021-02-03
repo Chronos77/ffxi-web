@@ -1,0 +1,2 @@
+class ServerVariable < ApplicationRecord
+end

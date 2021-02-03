@@ -1,0 +1,2 @@
+class ItemModsPet < ApplicationRecord
+end

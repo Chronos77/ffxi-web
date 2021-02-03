@@ -1,0 +1,2 @@
+class CharLook < ApplicationRecord
+end

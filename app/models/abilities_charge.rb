@@ -1,0 +1,2 @@
+class AbilitiesCharge < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CharSpell < ApplicationRecord
+end

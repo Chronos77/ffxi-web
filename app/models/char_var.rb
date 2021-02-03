@@ -1,0 +1,2 @@
+class CharVar < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class MobFamilyMod < ApplicationRecord
+end

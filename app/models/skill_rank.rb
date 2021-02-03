@@ -1,0 +1,2 @@
+class SkillRank < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class ItemMod < ApplicationRecord
+end

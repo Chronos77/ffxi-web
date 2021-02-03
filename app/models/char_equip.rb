@@ -1,0 +1,2 @@
+class CharEquip < ApplicationRecord
+end

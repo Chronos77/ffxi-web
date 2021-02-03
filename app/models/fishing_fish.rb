@@ -1,0 +1,2 @@
+class FishingFish < ApplicationRecord
+end

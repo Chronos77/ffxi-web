@@ -1,0 +1,2 @@
+class DespoilEffect < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Zoneline < ApplicationRecord
+end

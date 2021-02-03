@@ -1,0 +1,2 @@
+class BcnmInfo < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CharRecast < ApplicationRecord
+end

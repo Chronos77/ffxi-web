@@ -1,0 +1,2 @@
+class ItemPuppet < ApplicationRecord
+end

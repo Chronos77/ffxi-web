@@ -1,0 +1,2 @@
+class NmSpawnPoint < ApplicationRecord
+end

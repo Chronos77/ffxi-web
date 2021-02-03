@@ -1,0 +1,2 @@
+class MobSpawnMod < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class FishingRod < ApplicationRecord
+end

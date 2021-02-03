@@ -1,0 +1,2 @@
+class CharStorage < ApplicationRecord
+end

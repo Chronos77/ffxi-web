@@ -1,0 +1,2 @@
+class Magian < ApplicationRecord
+end

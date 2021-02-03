@@ -1,0 +1,2 @@
+class InstanceList < ApplicationRecord
+end

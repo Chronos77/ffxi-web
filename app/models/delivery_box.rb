@@ -1,0 +1,2 @@
+class DeliveryBox < ApplicationRecord
+end

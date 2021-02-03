@@ -1,0 +1,2 @@
+class ConquestSystem < ApplicationRecord
+end

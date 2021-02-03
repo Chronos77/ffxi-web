@@ -1,0 +1,2 @@
+class CharBlacklist < ApplicationRecord
+end

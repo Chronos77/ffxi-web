@@ -1,0 +1,2 @@
+class CharPoint < ApplicationRecord
+end

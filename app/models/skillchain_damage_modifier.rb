@@ -1,0 +1,2 @@
+class SkillchainDamageModifier < ApplicationRecord
+end

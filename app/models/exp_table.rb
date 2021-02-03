@@ -1,0 +1,2 @@
+class ExpTable < ApplicationRecord
+end

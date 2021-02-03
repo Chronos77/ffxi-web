@@ -1,0 +1,2 @@
+class ItemLatent < ApplicationRecord
+end

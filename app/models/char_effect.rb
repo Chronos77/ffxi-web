@@ -1,0 +1,2 @@
+class CharEffect < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class AccountIpRecord < ApplicationRecord
+end

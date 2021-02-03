@@ -1,0 +1,2 @@
+class CharMerit < ApplicationRecord
+end

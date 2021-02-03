@@ -1,0 +1,2 @@
+class GuildShop < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class FishingLure < ApplicationRecord
+end

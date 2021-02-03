@@ -1,0 +1,2 @@
+class AuditGm < ApplicationRecord
+end

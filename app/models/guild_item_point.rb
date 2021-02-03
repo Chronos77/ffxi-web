@@ -1,0 +1,2 @@
+class GuildItemPoint < ApplicationRecord
+end

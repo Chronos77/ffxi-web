@@ -1,0 +1,2 @@
+class AccountsParty < ApplicationRecord
+end

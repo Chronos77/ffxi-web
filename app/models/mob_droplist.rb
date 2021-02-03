@@ -1,0 +1,2 @@
+class MobDroplist < ApplicationRecord
+end
