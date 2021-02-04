@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Item Basics</h1>
+
+<%= search_form_for @q do |f| %>
+
+  # Search if the name field contains...
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Itemid</th>
+      <th>Subid</th>
+      <th>Name</th>
+      <th>Sortname</th>
+      <th>Stacksize</th>
+      <th>Flags</th>
+      <th>Ah</th>
+      <th>Nosale</th>
+      <th>Basesel</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item_basics.each do |item_basic| %>
+      <tr>
+        <td><%= item_basic.itemid %></td>
+        <td><%= item_basic.subid %></td>
+        <td><%= item_basic.name %></td>
+        <td><%= item_basic.sortname %></td>
+        <td><%= item_basic.stackSize %></td>
+        <td><%= item_basic.flags %></td>
+        <td><%= item_basic.aH %></td>
+        <td><%= item_basic.NoSale %></td>
+        <td><%= item_basic.BaseSell %></td>
+        <td><%= link_to 'Show', item_basic %></td>
+        <td><%= link_to 'Edit', edit_item_basic_path(item_basic) %></td>
+        <td><%= link_to 'Destroy', item_basic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @item_basics %>

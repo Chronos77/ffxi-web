@@ -1,0 +1,62 @@
+<%= form_with(model: item_basic) do |form| %>
+  <% if item_basic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item_basic.errors.count, "error") %> prohibited this item_basic from being saved:</h2>
+
+      <ul>
+        <% item_basic.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :itemid %>
+    <%= form.number_field :itemid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subid %>
+    <%= form.number_field :subid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sortname %>
+    <%= form.text_field :sortname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stackSize %>
+    <%= form.number_field :stackSize %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flags %>
+    <%= form.number_field :flags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aH %>
+    <%= form.number_field :aH %>
+  </div>
+
+  <div class="field">
+    <%= form.label :NoSale %>
+    <%= form.number_field :NoSale %>
+  </div>
+
+  <div class="field">
+    <%= form.label :BaseSel %>
+    <%= form.number_field :BaseSel %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Itemid:</strong>
+  <%= @item_basic.itemid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item_basic.name %>
+</p>
+
+<p>
+  <strong>Sortname:</strong>
+  <%= @item_basic.sortname %>
+</p>
+
+<p>
+  <strong>Stacksize:</strong>
+  <%= @item_basic.stackSize %>
+</p>
+
+<p>
+  <strong>Flags:</strong>
+  <%= @item_basic.flags %>
+</p>
+
+<p>
+  <strong>Ah:</strong>
+  <%= @item_basic.aH %>
+</p>
+
+<p>
+  <strong>Nosale:</strong>
+  <%= @item_basic.NoSale %>
+</p>
+
+<p>
+  <strong>Basesell:</strong>
+  <%= @item_basic.BaseSell %>
+</p>
+
+<% if @item_basic.item_usable %>
+  <h3> usable </h3>
+<% else %>
+  <h3> not usable </h3>
+<% end %>
+
+<% if @item_basic.item_equipment %>
+  <h3> equipment </h3>
+  <p>
+    <strong>level/ilevel:</strong>
+    <%= @item_basic.item_equipment.level %> / <%= @item_basic.item_equipment.ilevel %>
+  </p>
+<% else %>
+  <h3> not an equipment </h3>
+<% end %>
+
+
+<% if @item_basic.item_mod.length > 0 %>
+  <h3> Mods </h3>
+  <% @item_basic.item_mod.each do |item_mod|%>
+  <p>
+    <%= get_mod(item_mod.modId) %>: <%= item_mod.value %>
+  </p>
+  <% end %>
+<% else %>
+  <h3> no mods </h3>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_item_basic_path(@item_basic) %> |
+<%= link_to 'Back', item_basics_path %>
