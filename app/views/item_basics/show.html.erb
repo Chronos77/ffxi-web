@@ -1,74 +1,63 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Itemid:</strong>
-  <%= @item_basic.itemid %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @item_basic.name %>
-</p>
-
-<p>
-  <strong>Sortname:</strong>
-  <%= @item_basic.sortname %>
-</p>
-
-<p>
-  <strong>Stacksize:</strong>
-  <%= @item_basic.stackSize %>
-</p>
-
-<p>
-  <strong>Flags:</strong>
-  <%= @item_basic.flags %>
-</p>
-
-<p>
-  <strong>Ah:</strong>
-  <%= @item_basic.aH %>
-</p>
-
-<p>
-  <strong>Nosale:</strong>
-  <%= @item_basic.NoSale %>
-</p>
-
-<p>
-  <strong>Basesell:</strong>
-  <%= @item_basic.BaseSell %>
-</p>
-
-<% if @item_basic.item_usable %>
-  <h3> usable </h3>
-<% else %>
-  <h3> not usable </h3>
-<% end %>
-
-<% if @item_basic.item_equipment %>
-  <h3> equipment </h3>
-  <p>
-    <strong>level/ilevel:</strong>
-    <%= @item_basic.item_equipment.level %> / <%= @item_basic.item_equipment.ilevel %>
-  </p>
-<% else %>
-  <h3> not an equipment </h3>
-<% end %>
-
-
-<% if @item_basic.item_mod.length > 0 %>
-  <h3> Mods </h3>
-  <% @item_basic.item_mod.each do |item_mod|%>
-  <p>
-    <%= get_mod(item_mod.modId) %>: <%= item_mod.value %>
-  </p>
+<div class="row">
+  <div class="card text-dark bg-light col-6 p-0">
+    <div class="card-header fs-4 fw-bolder"><%= @item_basic.name %> (itemid: <%= @item_basic.itemid %>)</div>
+    <div class="card-body">
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">Base sell :</span> <%= @item_basic.BaseSell %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">Flags :</span> <%= @item_basic.flags %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">stackSize :</span> <%= @item_basic.stackSize %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">NoSale :</span> <%= @item_basic.NoSale %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">Ah :</span> <%= @item_basic.aH %></p>
+    </div>
+  </div>
+  <div class="card text-dark bg-light col-6 p-0">
+    <div class="card-header fs-4 fw-bolder">
+      <% if @item_basic.item_usable %>
+        Item usable
+      <% else %>
+        Item not usable
+      <% end %>
+    </div>
+    <div class="card-body">
+      ...
+    </div>
+  </div>
+</div>
+<div class="row">
+  <% if @item_basic.item_equipment %>
+  <div class="card text-dark bg-light col-6 p-0">
+    <div class="card-header fs-4 fw-bolder">
+        Item is an equipment
+    </div>
+    <div class="card-body">
+      <p class="card-text fs-5">level/ilevel: : <%= @item_basic.item_equipment.level %> / <%= @item_basic.item_equipment.ilevel %></p>
+    </div>
+  </div>
   <% end %>
-<% else %>
-  <h3> no mods </h3>
-<% end %>
 
-
+  <div class="card text-dark bg-light col-6 p-0">
+    <div class="card-header fs-4 fw-bolder">
+        Mods
+    </div>
+    <div class="card-body">
+      <% if @item_basic.item_mod.length > 0 %>
+        <ul class="list-group list-group-flush">
+        <% @item_basic.item_mod.each do |item_mod|%>
+        
+          <li class="list-group-item list-group-item-action fs-5">
+            <span class="fw-bolder d-inline-block" style="min-width: 10vw">
+              <%= get_mod(item_mod.modId) %>:
+            </span> 
+            <span class="badge bg-primary rounded-pill fs-5"><%= item_mod.value %></span>
+          </li>
+        <% end %>
+        </ul>
+      <% else %>
+        <p class="card-text fs-5 text-danger">No mods</p>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_item_basic_path(@item_basic) %> |
 <%= link_to 'Back', item_basics_path %>
