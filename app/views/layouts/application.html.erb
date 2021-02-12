@@ -14,8 +14,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
-      
-        <%= link_to item_basics_url, :class => 'navbar-brand' do %>
+        <%= link_to item_basics_url, :class => 'navbar-brand', :style => 'width: 80vw' do %>
           <%= image_tag("logo.png", :alt => "Logo", :width => 40) %>
         <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,9 +22,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <%= link_to 'Home', item_basics_url, :class => ' btn nav-link fs-4' %>
-            </li>
             <li class="nav-item">
               <%= link_to 'Items', item_basics_url, :class => 'btn nav-link fs-4' %>
             </li>

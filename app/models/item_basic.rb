@@ -4,5 +4,7 @@ class ItemBasic < ApplicationRecord
     self.per_page = 20
     has_one :item_equipment, :foreign_key => 'itemId'
     has_one :item_usable, :foreign_key => 'itemid'
+    has_one :item_weapon, :foreign_key => 'itemId'
+    has_many :mob_droplist, :foreign_key => 'itemId'
     has_many :item_mod, :foreign_key => 'itemId'
 end

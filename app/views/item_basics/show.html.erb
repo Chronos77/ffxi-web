@@ -1,41 +1,66 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="card text-dark bg-light col-6 p-0">
+  <div class="card text-dark bg-light col-xs-12 col-md-6 p-0">
     <div class="card-header fs-4 fw-bolder"><%= @item_basic.name %> (itemid: <%= @item_basic.itemid %>)</div>
     <div class="card-body">
-      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">Base sell :</span> <%= @item_basic.BaseSell %></p>
-      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">Flags :</span> <%= @item_basic.flags %></p>
-      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">stackSize :</span> <%= @item_basic.stackSize %></p>
-      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">NoSale :</span> <%= @item_basic.NoSale %></p>
-      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 10vw">Ah :</span> <%= @item_basic.aH %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">Base sell :</span> <%= @item_basic.BaseSell %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">Flags :</span> <%= @item_basic.flags %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">stackSize :</span> <%= @item_basic.stackSize %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">NoSale :</span> <%= @item_basic.NoSale %></p>
+      <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">Ah :</span> <%= @item_basic.aH %></p>
     </div>
   </div>
-  <div class="card text-dark bg-light col-6 p-0">
+  <div class="card text-dark bg-light col-xs-12 col-md-6 p-0">
     <div class="card-header fs-4 fw-bolder">
-      <% if @item_basic.item_usable %>
-        Item usable
-      <% else %>
-        Item not usable
-      <% end %>
+      Usable
     </div>
     <div class="card-body">
-      ...
+      <% if @item_basic.item_usable %>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">name :</span> <%= @item_basic.item_usable.name %></p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">validTargets :</span> <%= get_valid_targets(@item_basic.item_usable.validTargets) %></p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">activation :</span> <%= @item_basic.item_usable.activation %></p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">Animation (animationTime) :</span> <%= @item_basic.item_usable.animation %> (<%= @item_basic.item_usable.animationTime %>s)</p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">maxCharges :</span> <%= @item_basic.item_usable.maxCharges %></p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">useDelay :</span> <%= @item_basic.item_usable.useDelay %></p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">reuseDelay :</span> <%= @item_basic.item_usable.reuseDelay %></p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">aoe :</span> <%= @item_basic.item_usable.aoe %></p>
+      <% else %>
+        <p class="card-text fs-5 text-danger">Item is not usable</p>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="row">
-  <% if @item_basic.item_equipment %>
-  <div class="card text-dark bg-light col-6 p-0">
+  <div class="card text-dark bg-light col-xs-12 col-md-4 p-0">
     <div class="card-header fs-4 fw-bolder">
-        Item is an equipment
+      Equipment
     </div>
     <div class="card-body">
-      <p class="card-text fs-5">level/ilevel: : <%= @item_basic.item_equipment.level %> / <%= @item_basic.item_equipment.ilevel %></p>
+      <% if @item_basic.item_equipment %>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">level/ilevel :</span> <%= @item_basic.item_equipment.level %> / <%= @item_basic.item_equipment.ilevel %></p>
+      <% else %>
+        <p class="card-text fs-5 text-danger">Item is not an equipment</p>
+      <% end %>
     </div>
   </div>
-  <% end %>
+  <div class="card text-dark bg-light col-xs-12 col-md-4  p-0">
+    <div class="card-header fs-4 fw-bolder">
+      Weapon
+    </div>
+    <div class="card-body">
+      <% if @item_basic.item_weapon %>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">Damage :</span> +<%= @item_basic.item_weapon.dmg %> </p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">DamageType :</span> <%= get_dmg_type(@item_basic.item_weapon.dmgType) %> </p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">Skill :</span> <%= get_skill(@item_basic.item_weapon.skill) %> </p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">Delay :</span> <%= @item_basic.item_weapon.delay %> </p>
+        <p class="card-text fs-5"><span class="fw-bolder d-inline-block" style="min-width: 15vw">Hit :</span> <%= @item_basic.item_weapon.hit %> </p>
+      <% else %>
+        <p class="card-text fs-5 text-danger">Item is not a weapon</p>
+      <% end %>
+    </div>
+  </div>
 
-  <div class="card text-dark bg-light col-6 p-0">
+  <div class="card text-dark bg-light col-xs-12 col-md-4 p-0">
     <div class="card-header fs-4 fw-bolder">
         Mods
     </div>
@@ -45,7 +70,7 @@
         <% @item_basic.item_mod.each do |item_mod|%>
         
           <li class="list-group-item list-group-item-action fs-5">
-            <span class="fw-bolder d-inline-block" style="min-width: 10vw">
+            <span class="fw-bolder d-inline-block" style="min-width: 15vw">
               <%= get_mod(item_mod.modId) %>:
             </span> 
             <span class="badge bg-primary rounded-pill fs-5"><%= item_mod.value %></span>
@@ -53,11 +78,40 @@
         <% end %>
         </ul>
       <% else %>
-        <p class="card-text fs-5 text-danger">No mods</p>
+        <p class="card-text fs-5 text-danger">Item has no mods</p>
       <% end %>
     </div>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_item_basic_path(@item_basic) %> |
-<%= link_to 'Back', item_basics_path %>
+<div class="row">
+  <div class="card text-dark bg-light col-xs-12 col-md-6 p-0">
+    <div class="card-header fs-4 fw-bolder">
+        Drop by..
+    </div>
+    <div class="card-body">
+      <% if @item_basic.mob_droplist.length > 0 %>
+        <ul class="list-group list-group-flush">
+        <% @item_basic.mob_droplist.each do |drop_list| %>
+          <% if drop_list.mob_group.length > 0 %>
+            <% drop_list.mob_group.each do |mob_group| %>
+              <li class="list-group-item list-group-item-action fs-5">
+                <span class="fw-bolder d-inline-block" style="min-width: 15vw">
+                  <%= mob_group.name %>
+                </span> 
+                <span class="badge bg-primary rounded-pill fs-5"><%= drop_list.itemRate / 10 %>%</span>
+              </li>
+            <% end %>
+          <% end %>
+        <% end %>
+        </ul>
+      <% else %>
+        <p class="card-text fs-5 text-danger">This item is not linked to any drop.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-md-1 col-sm-12">
+    <%= link_to 'Back', item_basics_path, :class => 'btn btn-secondary d-flex fs-5' %>
+  </div>
+</div>
