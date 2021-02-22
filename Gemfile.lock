@@ -154,6 +154,7 @@ GEM
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
       i18n
+    redis (4.2.5)
     regexp_parser (2.0.3)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -225,6 +226,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
   ransack
+  redis
   sass-rails (>= 6)
   selenium-webdriver
   turbolinks (~> 5)

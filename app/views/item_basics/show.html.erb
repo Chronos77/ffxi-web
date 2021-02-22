@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<div class="row mt-2 p-0 mb-2">
+  <div class="col-md-1 col-sm-12 p-0">
+    <%= link_to 'Back', item_basics_path, :class => 'btn btn-secondary d-flex fs-5' %>
+  </div>
+</div>
 <div class="row">
   <div class="card text-dark bg-light col-xs-12 col-md-6 p-0">
     <div class="card-header fs-4 fw-bolder"><%= @item_basic.name %> (itemid: <%= @item_basic.itemid %>)</div>
@@ -90,28 +95,34 @@
     </div>
     <div class="card-body">
       <% if @item_basic.mob_droplist.length > 0 %>
-        <ul class="list-group list-group-flush">
-        <% @item_basic.mob_droplist.each do |drop_list| %>
-          <% if drop_list.mob_group.length > 0 %>
-            <% drop_list.mob_group.each do |mob_group| %>
-              <li class="list-group-item list-group-item-action fs-5">
-                <span class="fw-bolder d-inline-block" style="min-width: 15vw">
-                  <%= mob_group.name %>
-                </span> 
-                <span class="badge bg-primary rounded-pill fs-5"><%= drop_list.itemRate / 10 %>%</span>
-              </li>
+        <table  class="table table-striped table-responsive-xs">
+          <thead>
+            <tr>
+              <th>Mob name</th>
+              <th>Zone</th>
+              <th>itemRate</th>
+              <th>groupRate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @item_basic.mob_droplist.each do |drop_list| %>
+              <% if drop_list.mob_group.length > 0 %>
+                <% drop_list.mob_group.each do |mob_group| %>
+                  <tr>
+                    <td> <%= mob_group.name %></td>
+                    <td> <%= get_zone(mob_group.zoneid) %></td>
+                    <td> <%= drop_list.itemRate/ 10 %>%</td>
+                    <td> <%= drop_list.groupRate/ 10 %>%</td>
+                    <td></td>
+                  </tr>
+                <% end %>
+              <% end %>
             <% end %>
-          <% end %>
-        <% end %>
-        </ul>
+          </tbody>
+        </table>
       <% else %>
         <p class="card-text fs-5 text-danger">This item is not linked to any drop.</p>
       <% end %>
     </div>
-  </div>
-</div>
-<div class="row mt-5">
-  <div class="col-md-1 col-sm-12">
-    <%= link_to 'Back', item_basics_path, :class => 'btn btn-secondary d-flex fs-5' %>
   </div>
 </div>

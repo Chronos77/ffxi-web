@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mobid: 1
+  mobname: MyString
+  polutils_name: MyString
+
+two:
+  mobid: 1
+  mobname: MyString
+  polutils_name: MyString

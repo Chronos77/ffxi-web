@@ -1,3 +1,3 @@
 class MobPool < ApplicationRecord
-  belongs_to :skill_list
+  self.primary_key = 'poolid'
 end

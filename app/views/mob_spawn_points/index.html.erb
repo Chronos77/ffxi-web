@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="col-xs-12 col-md-12 mb-5 p-0 m-0">
+  <h2>Mob Spawn Points</h2>
+</div>
+<%= search_form_for @q do |f| %>
+  <div class="col-xs-12 col-md-12 mb-5 p-0 m-0">
+    <div class="input-group">
+      <%= f.search_field :mobname_cont, class: 'form-control' %>
+      <%= f.submit 'Search', :class => 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+
+<div class="col-xs-12 col-md-12 mb-5 p-0 m-0">
+<table  class="table table-striped table-responsive-xs">
+  <thead>
+    <tr>
+      <th>Mobid</th>
+      <th>Mobname</th>
+      <th>Polutils name</th>
+      <th>GM Command (x, y, z)</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mob_spawn_points.each do |mob_spawn_point| %>
+      <tr>
+        <td><%= mob_spawn_point.mobid %></td>
+        <td><%= mob_spawn_point.mobname %></td>
+        <td><%= mob_spawn_point.polutils_name %></td>
+        <td>!pos <%= mob_spawn_point.pos_x %> <%= mob_spawn_point.pos_y %> <%= mob_spawn_point.pos_z %></td>
+        <td><%= link_to 'Show', mob_spawn_point %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="col-xs-12 col-md-12 mb-5">
+<%= will_paginate @mob_spawn_points, renderer: BootstrapPagination::Rails %>
+</div>
