@@ -8,7 +8,7 @@ gem 'rails', '~> 6.1.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.5'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 4.0'
 # The Puma gem may already exist in your Gemfile. If not, add i
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -40,7 +40,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development do
   gem "capistrano", "~> 3.10", require: false
+  gem 'capistrano-rvm'
   gem "capistrano-rails", "~> 1.6", require: false
+  gem 'capistrano-bundler', '~> 2.0'
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
 group :development, :test do
