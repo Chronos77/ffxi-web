@@ -10,6 +10,11 @@ server "192.168.1.82", user: "ubuntu", roles: %w{app db web}
 set :rvm_custom_path, '/usr/share/rvm'
 set :rvm_ruby_version, '2.5.8'
 
+set :use_sudo,  false
+set :ssh_options, {forward_agent: true}
+set :puma_bind, 'tcp://0.0.0.0:3000'
+
+
 # role-based syntax
 # ==================
 
