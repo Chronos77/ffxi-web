@@ -25,7 +25,7 @@ set :bundle_dir, "/home/ubuntu/.rvm/gems/ruby-2.5.8"
 # Default value for :linked_files is []
 append :linked_dirs, '.bundle'
 
-append :linked_files, "config/database.yml"
+append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
