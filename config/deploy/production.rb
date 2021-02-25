@@ -1,3 +1,7 @@
+server '192.168.1.82', port: 22, roles: [:web, :app, :db], primary: true
+
+set :repo_url,        'git@github.com:Chronos77/ffxi-web.git'
+set :application,     'ffxi_web'
 
 # If using Digital Ocean's Ruby on Rails Marketplace framework, your username is 'rails'
 set :user,            'ubuntu'
@@ -19,15 +23,9 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
-
 set :rvm_custom_path, '/usr/share/rvm'
 set :rvm_ruby_string, 'ruby-2.5.8@ffxi-web'
 set :rvm_ruby_version, 'ruby-2.5.8@ffxi-web'
-set :bundle_string, '/home/ubuntu/.rvm/gems/ruby-2.5.8/bin/bundle'
-
-set :repo_url,        'git@github.com:Chronos77/ffxi-web.git'
-set :application,     'ffxi_web'
-
 
 namespace :puma do
     desc 'Create Directories for Puma Pids and Socket'
