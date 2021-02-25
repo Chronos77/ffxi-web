@@ -248,6 +248,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capistrano (~> 3.14)
+  capistrano-bundler
   capistrano-rails (= 1.2.2)
   capistrano-rake
   capistrano-rvm (= 0.1.2)
@@ -276,4 +277,4 @@ RUBY VERSION
    ruby 2.5.8p224
 
 BUNDLED WITH
-   2.2.4
+   2.2.11
