@@ -73,7 +73,7 @@ namespace :puma do
           invoke 'puma:restart'
         end
     end
-  
+    before "deploy:assets:precompile", "deploy:yarn_install"
     before :starting,     :check_revision
     after  :finishing,    :compile_assets
     after  :finishing,    :cleanup
