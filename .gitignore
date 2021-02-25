@@ -36,3 +36,4 @@ yarn-debug.log*
 .yarn-integrity
 
 database.yml
+Gemfile.lock

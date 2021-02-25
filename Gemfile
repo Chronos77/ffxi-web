@@ -28,6 +28,14 @@ gem 'ransack'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'redis'
+gem 'capistrano', '~> 3.14'
+gem 'capistrano-rails', '1.2.2'
+gem 'capistrano-rvm', '0.1.2'
+gem 'capistrano3-puma', '1.2.1'
+gem 'capistrano-rake'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
