@@ -9,6 +9,7 @@ gem 'rails', '~> 6.1.1'
 gem 'mysql2', '~> 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+# The Puma gem may already exist in your Gemfile. If not, add i
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -28,12 +29,6 @@ gem 'ransack'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'redis'
-gem 'capistrano', '~> 3.6'
-gem 'capistrano-rails'
-gem 'capistrano-rvm'
-gem 'capistrano3-puma'
-gem 'capistrano-bundler', '~> 2.0'
-gem 'capistrano-rake'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
@@ -44,6 +39,11 @@ gem 'bcrypt_pbkdf'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
