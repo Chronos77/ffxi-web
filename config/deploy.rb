@@ -19,6 +19,8 @@ set :deploy_to, "/projects/ffxi-web"
 
 # Default value for :pty is false
 # set :pty, true
+set :bundle_cmd, "/home/ubuntu/.rvm/gems/ruby-2.5.8/bin/bundle"
+set :bundle_dir, "/home/ubuntu/.rvm/gems/ruby-2.5.8"
 
 # Default value for :linked_files is []
 append :linked_dirs, '.bundle'
