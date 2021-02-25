@@ -21,6 +21,8 @@ set :deploy_to, "/projects/ffxi-web"
 # set :pty, true
 
 # Default value for :linked_files is []
+append :linked_dirs, '.bundle'
+
 append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
