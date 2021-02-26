@@ -9,4 +9,3 @@ set :rvm_ruby_version, '2.5.8'
 
 set :use_sudo,  false
 set :ssh_options, {forward_agent: true}
-set :puma_bind, 'tcp://0.0.0.0:3000'
