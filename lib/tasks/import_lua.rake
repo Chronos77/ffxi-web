@@ -10,7 +10,7 @@ task :import_lua do
   end
   REDIS_CLIENT = Redis.new(host: 'localhost', port: 6379, db: 0)
 
-  Dir.glob("../../topaz-next/scripts/globals/**/*.lua").each do |file|
+  Dir.glob("/home/ubuntu/projects/topaz-next/scripts/globals/**/*.lua").each do |file|
     pp file
     file = File.open(file)
 
