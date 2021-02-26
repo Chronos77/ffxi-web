@@ -6,12 +6,13 @@ require 'capistrano/bundler'
 require 'capistrano/rvm'
 require 'capistrano/puma'
 
+
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
-install_plugin Capistrano::Puma  # Default puma tasks
+install_plugin Capistrano::Puma, load_hooks: true  # Default puma tasks
 # install_plugin Capistrano::Puma::Monit
-# install_plugin Capistrano::Puma::Systemd
+install_plugin Capistrano::Puma::Systemd
 # install_plugin Capistrano::Puma::Daemon
 
 # Include tasks from other gems included in your Gemfile
