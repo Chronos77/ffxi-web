@@ -32,13 +32,22 @@ append :linked_files, "config/database.yml", "config/secrets.yml", "config/puma.
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "node_modules"
 
-before "deploy:assets:precompile", "deploy:yarn_install"
+before "deploy:assets:precompile", "deploy:import_lua"
+after "puma:restart", 
 namespace :deploy do
   desc "Run rake yarn install"
   task :yarn_install do
     on roles(:web) do
       within release_path do
         execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
+      end
+    end
+  end
+  desc "Run import_lua"
+  task :import_lua do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && rake import_lua")
       end
     end
   end
