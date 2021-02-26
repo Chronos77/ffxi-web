@@ -47,7 +47,7 @@ namespace :deploy do
   task :import_lua do
     on roles(:web) do
       within release_path do
-        execute("cd #{release_path} && rake import_lua")
+        execute("cd #{release_path} && rails import_lua")
       end
     end
   end

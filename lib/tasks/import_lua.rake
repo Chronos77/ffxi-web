@@ -11,6 +11,7 @@ task :import_lua do
   REDIS_CLIENT = Redis.new(host: 'localhost', port: 6379, db: 0)
 
   Dir.glob("../../topaz-next/scripts/globals/**/*.lua").each do |file|
+    pp file
     file = File.open(file)
 
     regexp_group = /tpz.([aA-zZ]+)\s*=\s*[\r\n]([{][^}]+[}])*/
