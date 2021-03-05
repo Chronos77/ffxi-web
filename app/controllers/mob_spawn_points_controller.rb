@@ -13,10 +13,9 @@ class MobSpawnPointsController < ApplicationController
     @mob_pools = MobPool.where({ poolid: @mob_group.poolid })
     if @mob_pools.lengh > 0
       @mob_pool = @mob_pools.first
+      @mob_spell_list = MobSpellList.where({ spell_list_id: @mob_pool.spellList })
+      @mob_skill_list = MobSkillList.where({ skill_list_id: @mob_pool.skill_list_id })
     end
-    
-    @mob_spell_list = MobSpellList.where({ spell_list_id: @mob_pool.spellList })
-    @mob_skill_list = MobSkillList.where({ skill_list_id: @mob_pool.skill_list_id })
   end
 
   # GET /mob_spawn_points/new
