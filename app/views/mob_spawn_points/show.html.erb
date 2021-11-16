@@ -46,7 +46,9 @@
         <tbody>
         <% @mob_skill_list.each do |skill_list| %>
           <tr>
+          <% if skill_list.mob_skill %>
           <td> <%= skill_list.mob_skill.mob_skill_name %></td>
+          <% end %>
           </tr>
         <% end %>
         </tbody>
