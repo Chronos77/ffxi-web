@@ -5,6 +5,7 @@ class ItemBasicsController < ApplicationController
   def index
     @q = ItemBasic.ransack(params[:q])
     @item_basics = @q.result.paginate(:page => params[:page]).order('itemid ASC')
+    pp @item_basics
   end
 
   # GET /item_basics/1 or /item_basics/1.json

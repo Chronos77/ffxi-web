@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.8'
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.5'
 # Use Puma as the app server
-gem 'puma', '~> 4.0'
+gem 'puma', '~> 5.1'
 # The Puma gem may already exist in your Gemfile. If not, add i
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'ransack'
 gem 'jquery-rails'

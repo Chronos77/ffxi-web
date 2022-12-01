@@ -9,6 +9,8 @@ class MobSpawnPointsController < ApplicationController
 
   # GET /mob_spawn_points/1 or /mob_spawn_points/1.json
   def show
+    pp @mob_spawn_point.groupid
+    pp @mob_spawn_point.mobname
     @mob_group = MobGroup.find_by({ groupid: @mob_spawn_point.groupid, name: @mob_spawn_point.mobname })
     @mob_pools = MobPool.where({ poolid: @mob_group.poolid })
     if @mob_pools.length > 0
