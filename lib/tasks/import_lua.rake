@@ -22,11 +22,12 @@ task :import_lua do
     groups.each do |g|
       name = g[0]
       values = g[1]
-      
-      values.gsub!(/[\-]{2}[^\n]+/, "")
-      values.gsub!(regexp_line) { |line| "\"#{checkInt($2)}\":\"#{$1}\"#{$3}" }
-      values.gsub!(/\,[\r\n\s]+/, "")
-      REDIS_CLIENT.set(g[0].upcase, values)
+      unless values.nil?
+        values.gsub!(/[\-]{2}[^\n]+/, "")
+        values.gsub!(regexp_line) { |line| "\"#{checkInt($2)}\":\"#{$1}\"#{$3}" }
+        values.gsub!(/\,[\r\n\s]+/, "")
+        REDIS_CLIENT.set(g[0].upcase, values)
+      end
     end
   end
 end
