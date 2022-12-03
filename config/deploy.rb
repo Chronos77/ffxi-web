@@ -25,18 +25,13 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, false  # Change to true if using ActiveRecord
 
-set :nvm_type, :user # or :system, depends on your nvm setup
-set :nvm_node, 'v18.12.1'
-set :nvm_map_bins, %w{node npm yarn}
-
 append :linked_dirs, '.bundle'
 
-append :linked_files, "config/database.yml", "config/secrets.yml", "config/puma.rb"
+append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "node_modules"
 
-before "deploy:assets:precompile", "deploy:nvm_init"
 before "deploy:assets:precompile", "deploy:yarn_install"
 after "puma:restart", "deploy:import_lua"
 namespace :deploy do
@@ -49,14 +44,6 @@ namespace :deploy do
     end
   end
 
-  desc "Run nvm"
-  task :nvm_init do
-    on roles(:web) do
-      within release_path do
-        execute("cd #{release_path} && nvm use 18.12.1")
-      end
-    end
-  end
   desc "Run import_lua"
   task :import_lua do
     on roles(:web) do
