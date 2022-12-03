@@ -14,7 +14,7 @@ task :import_lua do
     pp file
     file = File.open(file)
 
-    regexp_group = /tpz.([aA-zZ]+)\s*=\s*[\r\n]([{][^}]+[}])*/
+    regexp_group = /xi.([aA-zZ]+)\s*=\s*[\r\n]([{][^}]+[}])*/
     regexp_line = /[\s-]*([aA0-zZ9]+)\s+=\s+([aA0-zZ9]+)([,]*)/
 
     groups = file.read.scan(regexp_group)
