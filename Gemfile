@@ -33,6 +33,7 @@ gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
 gem 'net-smtp', require: false
+gem 'net-pop', require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
