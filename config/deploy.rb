@@ -27,7 +27,7 @@ set :puma_init_active_record, false  # Change to true if using ActiveRecord
 
 append :linked_dirs, '.bundle'
 
-append :linked_files
+append :linked_files, "config/database.yml", "config/secrets.yml", "config/puma.rb"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "node_modules"
