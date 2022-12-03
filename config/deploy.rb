@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.15.0"
+lock "~> 3.17.1"
 
-server '192.168.1.21', roles: [:web, :app, :db], primary: true
+server '192.168.1.38', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:Chronos77/ffxi-web.git'
 set :application,     'ffxi_web'

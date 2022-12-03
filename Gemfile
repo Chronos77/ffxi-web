@@ -43,7 +43,7 @@ group :development do
   gem 'capistrano-rvm'
   gem "capistrano-rails", "~> 1.6", require: false
   gem 'capistrano-bundler', '~> 2.0'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano3-puma', '~>5.0'
 end
 
 group :development, :test do

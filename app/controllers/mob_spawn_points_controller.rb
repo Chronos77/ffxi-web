@@ -9,14 +9,14 @@ class MobSpawnPointsController < ApplicationController
 
   # GET /mob_spawn_points/1 or /mob_spawn_points/1.json
   def show
-    pp @mob_spawn_point.groupid
-    pp @mob_spawn_point.mobname
     @mob_group = MobGroup.find_by({ groupid: @mob_spawn_point.groupid, name: @mob_spawn_point.mobname })
-    @mob_pools = MobPool.where({ poolid: @mob_group.poolid })
-    if @mob_pools.length > 0
-      @mob_pool = @mob_pools.first
-      @mob_spell_list = MobSpellList.where({ spell_list_id: @mob_pool.spellList })
-      @mob_skill_list = MobSkillList.where({ skill_list_id: @mob_pool.skill_list_id })
+    if @mob_group 
+      @mob_pools = MobPool.where({ poolid: @mob_group.poolid })
+      if @mob_pools.length > 0
+        @mob_pool = @mob_pools.first
+        @mob_spell_list = MobSpellList.where({ spell_list_id: @mob_pool.spellList })
+        @mob_skill_list = MobSkillList.where({ skill_list_id: @mob_pool.skill_list_id })
+      end
     end
   end
 
