@@ -25,6 +25,10 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, false  # Change to true if using ActiveRecord
 
+set :nvm_type, :user # or :system, depends on your nvm setup
+set :nvm_node, 'v18.12.1'
+set :nvm_map_bins, %w{node npm yarn}
+
 append :linked_dirs, '.bundle'
 
 append :linked_files, "config/database.yml", "config/secrets.yml", "config/puma.rb"

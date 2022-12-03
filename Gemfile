@@ -41,6 +41,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development do
   gem "capistrano", "~> 3.10", require: false
   gem 'capistrano-rvm'
+  gem 'capistrano-nvm', require: false
   gem "capistrano-rails", "~> 1.6", require: false
   gem 'capistrano-bundler', '~> 2.0'
   gem 'capistrano3-puma', '~>5.0'
