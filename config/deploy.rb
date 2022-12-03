@@ -32,6 +32,7 @@ append :linked_files, "config/database.yml", "config/secrets.yml", "config/puma.
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "node_modules"
 
+before "deploy:assets:precompile", "deploy:nvm_init"
 before "deploy:assets:precompile", "deploy:yarn_install"
 after "puma:restart", "deploy:import_lua"
 namespace :deploy do
@@ -39,7 +40,16 @@ namespace :deploy do
   task :yarn_install do
     on roles(:web) do
       within release_path do
-        execute("cd #{release_path} && /home/ubuntu/.nvm/versions/node/v18.12.1/bin/yarn install --silent --no-progress --no-audit --no-optional")
+        execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
+      end
+    end
+  end
+
+  desc "Run nvm"
+  task :nvm_init do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{release_path} && nvm use 18.12.1")
       end
     end
   end
