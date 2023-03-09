@@ -1,1 +1,1 @@
-REDIS_CLIENT = Redis.new(host: 'localhost', port: 6379, db: 0)
+REDIS_CLIENT = Redis.new(host: '192.168.1.38', port: 6379, db: 0)
