@@ -6,5 +6,5 @@ class MobSpawnPoint < ApplicationRecord
 
     def self.ransackable_attributes(auth_object = nil)
         ["groupid", "mobid", "mobname", "polutils_name", "pos_rot", "pos_x", "pos_y", "pos_z"]
-    end
+    en
 end
