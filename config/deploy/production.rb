@@ -5,7 +5,7 @@
 
 server "192.168.1.38", user: "ubuntu", roles: %w{app db web}
 set :rvm_custom_path, '/usr/share/rvm'
-set :rvm_ruby_version, '3.1.2'
+set :rvm_ruby_version, '3.1.3'
 
 set :use_sudo,  false
 set :ssh_options, {forward_agent: true}

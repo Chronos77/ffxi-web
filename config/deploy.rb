@@ -48,7 +48,7 @@ namespace :deploy do
   task :import_lua do
     on roles(:web) do
       within release_path do
-        execute("cd #{current_path} && /usr/share/rvm/bin/rvm use 3.1.2 do rails import_lua")
+        execute("cd #{current_path} && /usr/share/rvm/bin/rvm use 3.1.3 do rails import_lua")
       end
     end
   end
