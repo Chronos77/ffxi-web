@@ -33,7 +33,8 @@ append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "node_modules"
 
 before "deploy:assets:precompile", "deploy:yarn_install"
-after "puma:restart", "deploy:import_lua"
+after "puma:restart", "deploy:import_lua", "deploy:update_schedule"
+
 namespace :deploy do
   desc "Run rake yarn install"
   task :yarn_install do
@@ -52,6 +53,16 @@ namespace :deploy do
       end
     end
   end
+
+  desc "Run update schedule"
+  task :update_schedule do
+    on roles(:web) do
+      within release_path do
+        execute("cd #{current_path} && /usr/share/rvm/bin/rvm use 3.1.3 do bundle exec whenever --update-crontab")
+      end
+    end
+  end
+  
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
