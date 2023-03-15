@@ -33,7 +33,8 @@ append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "node_modules"
 
 before "deploy:assets:precompile", "deploy:yarn_install"
-after "puma:restart", "deploy:import_lua", "deploy:update_schedule"
+after "puma:restart", "deploy:import_lua"
+after "puma:restart", "deploy:update_schedule"
 
 namespace :deploy do
   desc "Run rake yarn install"
