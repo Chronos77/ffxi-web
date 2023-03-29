@@ -33,6 +33,7 @@ append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "node_modules"
 
 before "deploy:assets:precompile", "deploy:yarn_install"
+before "deploy:symlink:release", "deploy:clear_schedule"
 after "puma:restart", "deploy:import_lua"
 after "puma:restart", "deploy:update_schedule"
 
@@ -55,10 +56,19 @@ namespace :deploy do
     end
   end
 
+  desc "Run clear schedule"
+  task :clear_schedule do
+    on roles(:web) do
+      within current_path do
+        execute("cd #{current_path} && /usr/share/rvm/bin/rvm use 3.1.3 do bundle exec whenever -c #{current_path}/config/schedule.rb")
+      end
+    end
+  end
+
   desc "Run update schedule"
   task :update_schedule do
     on roles(:web) do
-      within release_path do
+      within current_path do
         execute("cd #{current_path} && /usr/share/rvm/bin/rvm use 3.1.3 do bundle exec whenever --update-crontab")
       end
     end
